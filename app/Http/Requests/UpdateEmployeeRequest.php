@@ -13,7 +13,7 @@ class UpdateEmployeeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name' => 'nullable',
+            'last_name' => 'nullable',
+            'company_id' => 'nullable|exists:companies,id',
+            'email' => 'nullable',
+            'phone' => 'nullable',
         ];
     }
 }

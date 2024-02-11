@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class AuthController extends Controller
 {
     public function getLogin(){
@@ -28,5 +28,9 @@ class AuthController extends Controller
         }else{
             return redirect()->back()->with('error','Invalid credentials');
         }
+    }
+
+    public function getuser(){
+        $user = User::all();
     }
 }

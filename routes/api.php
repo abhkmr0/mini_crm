@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\{CompanyApiController,EmployeeApiController};
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/company/{id}', [CompanyApiController::class ,'show']);
+Route::post('/create-company', [CompanyApiController::class ,'store']);
+
+
+//Employee Route
+
+Route::get('/company/{id}/employees', [EmployeeApiController::class,'index']);
+Route::post('/company/{id}/employees', [EmployeeApiController::class, 'storeEmp']);
+
+
+
+
+

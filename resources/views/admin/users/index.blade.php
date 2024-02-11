@@ -21,10 +21,43 @@
 @section('body')
     <!-- Main row -->
     <div class="row">
-    	<div class="container-fluid">
-    		Users List
-    	</div>
-    	
+      <div class="col-md">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">List</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="width: 10px">ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ( $users as $user )
+                <tr>
+                  <td>{{$user->id}}</td>
+                  <td>{{$user->name}}</td>
+                  <td>
+                    {{$user->email}}
+                  </td>
+                  <td>
+                    {{$user->created_at}}
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+          
+        </div>
+        <!-- /.card -->
+      </div>
     </div>
     <!-- /.row (main row) -->
 @endsection
